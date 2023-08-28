@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
  */
 public enum DataBaseType {
     MySql("mysql", "com.mysql.jdbc.Driver"),
+    Hsql("hsql", "org.hsqldb.jdbc.JDBCDriver"),
     Tddl("mysql", "com.mysql.jdbc.Driver"),
     DRDS("drds", "com.mysql.jdbc.Driver"),
     Oracle("oracle", "oracle.jdbc.OracleDriver"),
@@ -18,8 +19,8 @@ public enum DataBaseType {
     PostgreSQL("postgresql", "org.postgresql.Driver"),
     RDBMS("rdbms", "com.alibaba.datax.plugin.rdbms.util.DataBaseType"),
     DB2("db2", "com.ibm.db2.jcc.DB2Driver"),
-    ADB("adb","com.mysql.jdbc.Driver"),
-    ADS("ads","com.mysql.jdbc.Driver"),
+    ADB("adb", "com.mysql.jdbc.Driver"),
+    ADS("ads", "com.mysql.jdbc.Driver"),
     ClickHouse("clickhouse", "ru.yandex.clickhouse.ClickHouseDriver"),
     KingbaseES("kingbasees", "com.kingbase8.Driver"),
     Oscar("oscar", "com.oscar.Driver"),
@@ -70,6 +71,8 @@ public enum DataBaseType {
             case Oscar:
                 break;
             case StarRocks:
+                break;
+            case Hsql:
                 break;
             default:
                 throw DataXException.asDataXException(DBUtilErrorCode.UNSUPPORTED_TYPE, "unsupported database type.");
@@ -234,6 +237,7 @@ public enum DataBaseType {
         }
         return null;
     }
+
     public String getTypeName() {
         return typeName;
     }

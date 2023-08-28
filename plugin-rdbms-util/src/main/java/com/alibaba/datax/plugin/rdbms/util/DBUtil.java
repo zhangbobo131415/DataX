@@ -428,6 +428,8 @@ public final class DBUtil {
         conn.setAutoCommit(false);
         Statement stmt = conn.createStatement(ResultSet.TYPE_FORWARD_ONLY,
                 ResultSet.CONCUR_READ_ONLY);
+        System.out.println("sql = " + sql);
+        System.out.println("fetchSize = " + fetchSize);
         stmt.setFetchSize(fetchSize);
         stmt.setQueryTimeout(queryTimeout);
         return query(stmt, sql);
